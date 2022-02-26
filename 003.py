@@ -1,4 +1,4 @@
-'''Написать код, который вычисляет сумму всех чисел, удовлетворяющих следующие условия:
+'''1) Написать код, который вычисляет сумму всех чисел, удовлетворяющих следующие условия:
 
     положительные целые числа от 1 до 1_000_000_002 (один миллиард два) включительно
     которые нацело (без остатка) делятся на 3 (пример: 3, 6, 9, ...)
@@ -12,7 +12,7 @@ for n in range(3, num + 1, 3):
         s += n 
 print(s)
 
-'''На вход поступает текстовый файл из 3-х тысяч строк
+'''2) На вход поступает текстовый файл из 3-х тысяч строк
 Формат файла:
     "арифметическая операция"    "целое число #1"    "целое число #2"
 Разделитель - 4 пробела
@@ -29,7 +29,13 @@ print(s)
             with open(pathout, 'w') as ouf:
                 ouf.write(','.join(map(str, res1)))
                 
-'''На вход поступает два текстовый файл из 3-х тысяч строк каждый.
+    with open('input_file.txt') as inf:
+        expressions = [[line.split()[i] for i in (1, 0 , 2)] for line in inf]
+    with open('output_.txt', 'w') as ouf:
+        evaluated = (eval(' '.join(expr)) for expr in expressions)
+        ouf.write(','.join(map(str, evaluated)) + '\n')
+        
+'''3) На вход поступает два текстовый файл из 3-х тысяч строк каждый.
 
     Первый файл содержит строки текста.   
      
@@ -58,7 +64,15 @@ for line, inds in zip(lines, indices):
 out_file.write('\n')
 lines.close(), indices.close(), out_file.close()
 
-'''На вход поступает строка.
+with open(r'import_file_2_1.txt') as inf: 
+    lines = [line.strip() for line in inf]
+with open(r'import_file_2_2.txt') as indsf: 
+    indices = [[*map(int, indexes.split())] for indexes in indsf]
+with open(r'output1_.txt', 'w') as outf:    
+    newlines = (line[ind[0] : ind[1]+1] for line, ind in zip(lines, indices))
+    outf.write(' '.join(newlines) + '\n')
+
+'''4) На вход поступает строка.
 В ней хранится набор химических символов (He, O, H, Mg, Fe, ...). Без пробелов.
 Нужно расшифровать химические символы в название химических элементов.
 Для удобства, прилагается json файл, который ставит в соответствие химическому символу его химическое название.
