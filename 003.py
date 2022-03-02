@@ -6,11 +6,10 @@
 '''
 
 num = 1_000_000_002
-s = 0
+sum = 0
 for n in range(3, num + 1, 3): 
     if n % 10 != 4 and n % 10 != 7: 
-        s += n 
-print(s)
+        sum += n
 
 ###
 
@@ -70,6 +69,8 @@ for line, inds in zip(lines, indices):
     out_file.write(line[ind1 : ind2 + 1] + ' ')
 out_file.write('\n')
 lines.close(), indices.close(), out_file.close()
+
+###
 
 with open(r'import_file_2_1.txt') as inf: 
     lines = [line.strip() for line in inf]
