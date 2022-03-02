@@ -11,7 +11,9 @@ for n in range(3, num + 1, 3):
     if n % 10 != 4 and n % 10 != 7: 
         s += n 
 print(s)
+
 ###
+
 s_div3 = (3 + 1_000_000_002) / 2 * 1_000_000_002 / 3
 s_div3_ends4 = (24 + 999_999_984)/ 2 * (999_999_984 + 6) / 30 
 s_div3_ends7 = (27 + 999_999_987)/ 2 *(999_999_987 + 3) / 30
@@ -100,7 +102,9 @@ for key in sorted(periodic_table.keys(), key=lambda x: len(x), reverse=True):
     line = line.replace(key, periodic_table[key])
 with open('output2.txt', 'w') as ouf:
     ouf.write(line + '\n')
+
 ###
+
 import re
 outlist = [periodic_table[sub] for sub in re.findall(r'[A-Z][a-z]*', line1)]
 with open('output2_.txt', 'w') as ouf:
