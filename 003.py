@@ -95,7 +95,7 @@ NOTiFICaTiON
 
 import json
 periodic_table = json.load(open('periodic_table.json', encoding='utf-8'))
-with open('import_file_3.txt') as inf: line = inf.read().strip()
+with open('import_file_3.txt') as inf: line = line1 = inf.read().strip()
 for key in sorted(periodic_table.keys(), key=lambda x: len(x), reverse=True):
     line = line.replace(key, periodic_table[key])
 with open('output2.txt', 'w') as ouf:
